@@ -1,3 +1,38 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">ngModel</ion-label>
+      <ion-input id="open-ngmodel-datetime" [value]="dateValue| date: 'dd-MM-YYYY' " placeholder="Select a date"
+        readonly>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Form control</ion-label>
+      <ion-input id="open-form-datetime" [value]="dateValue| date: 'dd-MM-YYYY' " placeholder="Select a date" readonly>
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-modal trigger="open-ngmodel-datetime">
+    <ng-template>
+      <ion-content>
+        <ion-datetime presentation="datetime" [value]="dateValue" cancelText="Cancel" doneText="Confirm"
+          [showDefaultButtons]="true" (ionChange)="onNgModelDateChange($event)"></ion-datetime>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal trigger="open-form-datetime">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="form">
+          <ion-datetime presentation="datetime" formControlName="date" cancelText="Cancel" doneText="Confirm"
+            [showDefaultButtons]="true" (ionChange)="onFormControlDateChange($event)"></ion-datetime>
+
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
 </ion-app>

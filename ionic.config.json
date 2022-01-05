@@ -1,0 +1,7 @@
+{
+  "name": "gh-24452-date-change",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
